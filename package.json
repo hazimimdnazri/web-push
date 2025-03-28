@@ -1,0 +1,16 @@
+{
+  "name": "web-push",
+  "version": "1.0.0",
+  "description": "A simple push notification server.",
+  "main": "index.js",
+  "author": "Hazimi Md Nazri",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^4.21.2",
+    "web-push": "^3.6.7"
+  },
+  "scripts": {
+    "start": "node --env-file=.env index.js"
+  }
+}
