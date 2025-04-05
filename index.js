@@ -2,6 +2,8 @@ const express = require('express');
 const webpush = require('web-push');
 const cors = require('cors');
 const routes = require('./route');
+const Logger = require('./services/Logger');
+const logger = Logger.getInstance();
 
 const app = express();
 app.use(express.json());
@@ -21,5 +23,5 @@ webpush.setVapidDetails("mailto:zimy@projeklah.com", publicVapidKey, privateVapi
 app.use('/', routes);
 
 app.listen(process.env.PORT, () => {
-    console.log("Server started on port " + process.env.PORT);
+    logger.info("Server started on port " + process.env.PORT);
 })

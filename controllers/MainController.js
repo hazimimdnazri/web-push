@@ -1,5 +1,8 @@
+const Logger = require('../services/Logger');
+const logger = Logger.getInstance();
+
 const healthCheck = (req, res) => {
-    console.log("Health check from " + req.ip);
+    logger.info("Health check from " + req.socket.remoteAddress);
     res.status(200).json({ message: 'OK' });
 };
 
