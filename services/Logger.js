@@ -6,7 +6,7 @@ class Logger {
     }
 
     #formatMessage(level, message, meta = {}) {
-        return `${this.dateFormat()} [${level.toUpperCase()}]: ${message}`;
+        return `${this.dateFormat()} [${level.toUpperCase()}]: ${message} ${JSON.stringify(meta)}`;
     }
 
     #shouldLog(level) {

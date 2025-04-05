@@ -3,7 +3,7 @@ const Logger = require('../services/Logger');
 const logger = Logger.getInstance();
 
 const subscribe = (req, res) => {
-    logger.info("Subscription request received");
+    logger.info("Subscription request received", req.body);
 
     const subscription = req.body;
     res.status(201).json({});
