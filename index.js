@@ -17,8 +17,9 @@ app.use(cors({
 
 const publicVapidKey = process.env.VAPID_PUBLIC_KEY;
 const privateVapidKey = process.env.VAPID_PRIVATE_KEY;
+const vapidSubject = process.env.VAPID_SUBJECT;
 
-webpush.setVapidDetails("mailto:zimy@projeklah.com", publicVapidKey, privateVapidKey);
+webpush.setVapidDetails(vapidSubject, publicVapidKey, privateVapidKey);
 
 app.use('/', routes);
 
