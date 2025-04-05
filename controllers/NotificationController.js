@@ -22,7 +22,7 @@ const subscribe = (req, res) => {
 
 const alert = (req, res) => {
     logger.info("Alert request received");
-
+    const subscription = req.body;
     const payload = JSON.stringify({
         title: "Testing Alert",
         body: "This is just a test alert.",
