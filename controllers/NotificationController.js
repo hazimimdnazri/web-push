@@ -22,10 +22,11 @@ const subscribe = (req, res) => {
 
 const alert = (req, res) => {
     logger.info("Alert request received");
-    const subscription = req.body;
+    const subscription = req.body.subscription;
+    logger.info("Alert request received", subscription);
     const payload = JSON.stringify({
-        title: "Testing Alert",
-        body: "This is just a test alert.",
+        title: req.body.title,
+        body: req.body.message,
         icon: "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_960_720.jpg",
         actions: [
             { action: "open_url", title: "Open URL" },
@@ -34,6 +35,10 @@ const alert = (req, res) => {
     });
 
     webpush.sendNotification(subscription, payload).catch(console.log);
+    res.status(200).json({
+        success: "OK",
+        message: "Alert sent"
+    });
 };
 
 module.exports = {
