@@ -19,7 +19,15 @@ const subscribe = (req, res) => {
 
     webpush.sendNotification(subscription, payload).catch(console.log);
     setTimeout(() => {
-        this.alert(subscription);
+        webpush.sendNotification(subscription, JSON.stringify({
+            title: "Testing Alert",
+            body: "This is just a test alert.",
+            icon: "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823_960_720.jpg",
+            actions: [
+                { action: "open_url", title: "Open URL" },
+                { action: "dismiss", title: "Dismiss" }
+            ]
+        })).catch(console.log);
     }, 3000);
 };
 
