@@ -1,6 +1,7 @@
 const webpush = require('web-push');
 
 const subscribe = (req, res) => {
+    logger.info("Subscription request received");
     const subscription = req.body;
     res.status(201).json({});
     const payload = JSON.stringify({
@@ -17,6 +18,7 @@ const subscribe = (req, res) => {
 };
 
 const alert = (req, res) => {
+    logger.info("Alert request received");
     const payload = JSON.stringify({
         title: "Testing Alert",
         body: "This is just a test alert.",
