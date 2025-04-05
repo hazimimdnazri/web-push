@@ -18,11 +18,13 @@ const subscribe = (req, res) => {
     });
 
     webpush.sendNotification(subscription, payload).catch(console.log);
+    setTimeout(() => {
+        this.alert(subscription);
+    }, 3000);
 };
 
-const alert = (req, res) => {
+const alert = (subscription) => {
     logger.info("Alert request received");
-    const subscription = req.body;
     const payload = JSON.stringify({
         title: "Testing Alert",
         body: "This is just a test alert.",
