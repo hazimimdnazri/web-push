@@ -22,8 +22,8 @@ const subscribe = (req, res) => {
 
 const alert = (req, res) => {
     logger.info("Alert request received");
+
     const subscription = req.body.subscription;
-    logger.info("Alert request received", subscription);
     const payload = JSON.stringify({
         title: req.body.title,
         body: req.body.message,
