@@ -1,4 +1,4 @@
-const Logger = require('../services/Logger');
+const Logger = require('../utils/Logger');
 const logger = Logger.getInstance();
 
 const healthCheck = (req, res) => {

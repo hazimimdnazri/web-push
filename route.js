@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const notificationController = require('./controllers/NotificationController');
-const mainController = require('./controllers/MainController');
+const notificationController = require('./app/controllers/NotificationController');
+const mainController = require('./app/controllers/MainController');
 
 router.get('/', mainController.healthCheck);
 router.post('/subscribe', notificationController.subscribe);

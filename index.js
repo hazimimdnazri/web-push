@@ -2,7 +2,7 @@ const express = require('express');
 const webpush = require('web-push');
 const cors = require('cors');
 const routes = require('./route');
-const Logger = require('./services/Logger');
+const Logger = require('./app/utils/Logger');
 const logger = Logger.getInstance();
 
 const app = express();
