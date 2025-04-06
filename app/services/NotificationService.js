@@ -1,3 +1,7 @@
+const Logger = require('../utils/Logger');
+
+const logger = Logger.getInstance();
+
 class NotificationService {
     constructor() {
         this.webpush = require('web-push');
@@ -7,7 +11,7 @@ class NotificationService {
         try {
             await this.webpush.sendNotification(subscription, payload);
         } catch (error) {
-            console.error('Error sending notification:', error);
+            logger.error('Error sending notification:', error);
         }
     }
 
