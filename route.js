@@ -5,9 +5,7 @@ const mainController = require('./app/controllers/MainController');
 const auth = require('./app/middleware/Auth');
 
 router.get('/', mainController.healthCheck);
-
-router.use(auth.verifyToken);
 router.post('/subscribe', notificationController.subscribe);
-router.post('/alert', notificationController.alert);
+router.post('/alert', auth.verifyToken, notificationController.alert);
 
 module.exports = router; 
