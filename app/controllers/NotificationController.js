@@ -13,10 +13,10 @@ const subscribe = (req, res) => {
         message: "Subscription created"
     });
 
-    NotificationService.sendNotification(subscription, {
+    NotificationService.sendNotification(subscription, JSON.stringify({
         title: "Welcome to Beraturlah!",
         body: "This is your first push notification",
-    });
+    }));
 };
 
 const alert = (req, res) => {
@@ -24,10 +24,10 @@ const alert = (req, res) => {
 
     const subscription = req.body.subscription;
 
-    NotificationService.sendNotification(subscription, {
+    NotificationService.sendNotification(subscription, JSON.stringify({
         title: req.body.title,
         body: req.body.message,
-    });
+    }));
 
     res.status(200).json({
         success: "OK",
